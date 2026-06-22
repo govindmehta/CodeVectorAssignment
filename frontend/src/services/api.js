@@ -1,6 +1,5 @@
-
-
 const API_BASE_URL =  import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
+console.log(API_BASE_URL);
 
 export const fetchProducts = async ({ category, cursor }) => {
   let url = `${API_BASE_URL}api/products?limit=20`;
