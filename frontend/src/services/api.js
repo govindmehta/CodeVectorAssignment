@@ -1,7 +1,9 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+
+
+const API_BASE_URL =  import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
 
 export const fetchProducts = async ({ category, cursor }) => {
-  let url = `${API_BASE_URL}/products?limit=20`;
+  let url = `${API_BASE_URL}api/products?limit=20`;
   
   if (category) {
     url += `&category=${encodeURIComponent(category)}`;
@@ -18,7 +20,7 @@ export const fetchProducts = async ({ category, cursor }) => {
 };
 
 export const injectConcurrentData = async (category) => {
-  const response = await fetch(`${API_BASE_URL}/simulate-injection`, {
+  const response = await fetch(`${API_BASE_URL}api/simulate-injection`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ category })
