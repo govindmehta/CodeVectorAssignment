@@ -16,3 +16,12 @@ export const fetchProducts = async ({ category, cursor }) => {
   }
   return response.json();
 };
+
+export const injectConcurrentData = async (category) => {
+  const response = await fetch(`${API_BASE_URL}/simulate-injection`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ category })
+  });
+  return response.json();
+};
